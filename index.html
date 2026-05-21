@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio Naufal Syamil Adz Dzaki — Junior Network Engineer specializing in OSPF, EIGRP, VLAN, Switching, Routing, and FHRP.">
+  <title>Naufal Syamil Adz Dzaki — Junior Network Engineer</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ═══════════════ NAVBAR ═══════════════ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo">
+        <span class="logo-bracket">&lt;</span>NSAD<span class="logo-bracket">/&gt;</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#hero" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#certificates" class="nav-link">Certificates</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══════════════ HERO ═══════════════ -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+    </div>
+    <div class="container hero-content">
+      <div class="hero-text">
+        <p class="hero-greeting anim-fade-up">Hello, I'm</p>
+        <h1 class="hero-name anim-fade-up anim-delay-1">Naufal Syamil<br>Adz Dzaki</h1>
+        <div class="hero-role-wrapper anim-fade-up anim-delay-2">
+          <span class="hero-role-line"></span>
+          <p class="hero-role">Junior Network Engineer</p>
+        </div>
+        <p class="hero-desc anim-fade-up anim-delay-3">Passionate about building reliable, scalable, and secure network infrastructures. Experienced in routing, switching, and network automation.</p>
+        <div class="hero-cta anim-fade-up anim-delay-4">
+          <a href="#experience" class="btn btn-primary">
+            <span>View Experience</span>
+            <i data-lucide="arrow-down-right" class="btn-icon"></i>
+          </a>
+          <a href="#contact" class="btn btn-outline">
+            <span>Contact Me</span>
+          </a>
+        </div>
+        <div class="hero-socials anim-fade-up anim-delay-4">
+          <a href="https://www.linkedin.com/in/naufaladzdzaki/" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
+            <i data-lucide="linkedin"></i>
+          </a>
+          <a href="mailto:syamiladzdzaki90@gmail.com" class="social-link" aria-label="Email">
+            <i data-lucide="mail"></i>
+          </a>
+        </div>
+      </div>
+      <div class="hero-visual anim-fade-up anim-delay-2">
+        <div class="hero-card">
+          <div class="hero-card-header">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-yellow"></span>
+            <span class="dot dot-green"></span>
+          </div>
+          <div class="hero-card-body">
+            <code>
+              <span class="code-keyword">router</span> ospf <span class="code-number">1</span><br>
+              &nbsp;&nbsp;<span class="code-keyword">network</span> <span class="code-string">10.0.0.0</span> <span class="code-number">0.0.0.255</span> area <span class="code-number">0</span><br>
+              &nbsp;&nbsp;<span class="code-keyword">network</span> <span class="code-string">192.168.1.0</span> <span class="code-number">0.0.0.255</span> area <span class="code-number">0</span><br>
+              <span class="code-comment">! Interface configuration</span><br>
+              <span class="code-keyword">interface</span> GigabitEthernet0/1<br>
+              &nbsp;&nbsp;<span class="code-keyword">ip address</span> <span class="code-string">10.0.0.1</span> <span class="code-number">255.255.255.0</span><br>
+              &nbsp;&nbsp;<span class="code-keyword">no shutdown</span><br>
+              <span class="code-cursor">█</span>
+            </code>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator anim-fade-up anim-delay-4">
+      <div class="scroll-mouse">
+        <div class="scroll-wheel"></div>
+      </div>
+      <span>Scroll Down</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════ ABOUT ═══════════════ -->
+  <section class="section about" id="about">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">About Me</span>
+        <h2 class="section-title">Get to know me</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>Saya adalah seorang <strong>Junior Network Engineer</strong> yang memiliki minat besar dalam dunia jaringan komputer. Saya memiliki pengalaman dalam konfigurasi dan troubleshooting berbagai protokol routing dan switching.</p>
+          <p>Saya selalu berusaha untuk meningkatkan kemampuan saya dalam merancang infrastruktur jaringan yang handal, aman, dan efisien. Saya percaya bahwa fondasi jaringan yang kuat adalah kunci keberhasilan sebuah organisasi.</p>
+          <div class="about-stats">
+            <div class="stat-item">
+              <span class="stat-number" data-count="3">0</span><span class="stat-suffix">+</span>
+              <span class="stat-label">Experience</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" data-count="6">0</span><span class="stat-suffix">+</span>
+              <span class="stat-label">Skills</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" data-count="3">0</span><span class="stat-suffix">+</span>
+              <span class="stat-label">Certificates</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-details reveal reveal-delay-1">
+          <div class="detail-card">
+            <div class="detail-icon"><i data-lucide="map-pin"></i></div>
+            <div>
+              <span class="detail-label">Lokasi</span>
+              <span class="detail-value">Indonesia</span>
+            </div>
+          </div>
+          <div class="detail-card">
+            <div class="detail-icon"><i data-lucide="briefcase"></i></div>
+            <div>
+              <span class="detail-label">Status</span>
+              <span class="detail-value">Open to Work</span>
+            </div>
+          </div>
+          <div class="detail-card">
+            <div class="detail-icon"><i data-lucide="graduation-cap"></i></div>
+            <div>
+              <span class="detail-label">Fokus</span>
+              <span class="detail-value">Network Engineering</span>
+            </div>
+          </div>
+          <div class="detail-card">
+            <div class="detail-icon"><i data-lucide="globe"></i></div>
+            <div>
+              <span class="detail-label">Bahasa</span>
+              <span class="detail-value">Indonesia, English</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ SKILLS ═══════════════ -->
+  <section class="section skills" id="skills">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Skills</span>
+        <h2 class="section-title">Technical Expertise</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card reveal">
+          <div class="skill-icon-wrap">
+            <i data-lucide="route"></i>
+          </div>
+          <h3>OSPF</h3>
+          <p>Open Shortest Path First — konfigurasi multi-area, redistribusi, dan optimasi cost metric.</p>
+          <div class="skill-level">
+            <div class="skill-bar" data-level="80"></div>
+          </div>
+        </div>
+        <div class="skill-card reveal reveal-delay-1">
+          <div class="skill-icon-wrap">
+            <i data-lucide="git-branch"></i>
+          </div>
+          <h3>EIGRP</h3>
+          <p>Enhanced Interior Gateway Routing Protocol — DUAL algorithm, stub routing, dan load balancing.</p>
+          <div class="skill-level">
+            <div class="skill-bar" data-level="75"></div>
+          </div>
+        </div>
+        <div class="skill-card reveal reveal-delay-2">
+          <div class="skill-icon-wrap">
+            <i data-lucide="layers"></i>
+          </div>
+          <h3>VLAN</h3>
+          <p>Virtual LAN — segmentation, trunking (802.1Q), inter-VLAN routing, dan VTP.</p>
+          <div class="skill-level">
+            <div class="skill-bar" data-level="85"></div>
+          </div>
+        </div>
+        <div class="skill-card reveal">
+          <div class="skill-icon-wrap">
+            <i data-lucide="arrow-left-right"></i>
+          </div>
+          <h3>Switching</h3>
+          <p>Layer 2 switching — STP, EtherChannel, port security, dan MAC address management.</p>
+          <div class="skill-level">
+            <div class="skill-bar" data-level="85"></div>
+          </div>
+        </div>
+        <div class="skill-card reveal reveal-delay-1">
+          <div class="skill-icon-wrap">
+            <i data-lucide="network"></i>
+          </div>
+          <h3>Routing</h3>
+          <p>Static & dynamic routing — route redistribution, policy-based routing, dan path control.</p>
+          <div class="skill-level">
+            <div class="skill-bar" data-level="80"></div>
+          </div>
+        </div>
+        <div class="skill-card reveal reveal-delay-2">
+          <div class="skill-icon-wrap">
+            <i data-lucide="shield-check"></i>
+          </div>
+          <h3>FHRP</h3>
+          <p>First Hop Redundancy Protocol — HSRP, VRRP, dan GLBP untuk high availability gateway.</p>
+          <div class="skill-level">
+            <div class="skill-bar" data-level="70"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ EXPERIENCE ═══════════════ -->
+  <section class="section projects" id="experience">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Experience</span>
+        <h2 class="section-title">Experience</h2>
+      </div>
+      <div class="projects-grid">
+        <!-- Experience 1 -->
+        <article class="project-card reveal">
+          <div class="project-image">
+            <img src="MLG-1.jpg" alt="Training MTCNA di IDN Boarding School Malang" loading="lazy">
+            <div class="project-overlay">
+              <span class="project-link-btn"><i data-lucide="briefcase"></i></span>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="tag">MikroTik</span>
+              <span class="tag">MTCNA</span>
+              <span class="tag">Training</span>
+            </div>
+            <h3>Trainer</h3>
+            <p>Menjadi Trainer MTCNA pada Training Networking di IDN Boarding School Malang.</p>
+          </div>
+        </article>
+
+        <!-- Experience 2 -->
+        <article class="project-card reveal reveal-delay-1">
+          <div class="project-image">
+            <img src="BBT1.jpg" alt="Guest Instructor di SMK Muhammadiyah Bobotsari" loading="lazy">
+            <div class="project-overlay">
+              <span class="project-link-btn"><i data-lucide="briefcase"></i></span>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="tag">Cisco</span>
+              <span class="tag">Fundamental</span>
+              <span class="tag">Teaching</span>
+            </div>
+            <h3>Guest Instructor</h3>
+            <p>Menjadi pembicara di SMK Muhammadiyah Bobotsari mengenai Cisco Fundamental dan Konfigurasi Dasar.</p>
+          </div>
+        </article>
+
+        <!-- Experience 3 -->
+        <article class="project-card reveal reveal-delay-2">
+          <div class="project-image">
+            <div class="project-placeholder">
+              <i data-lucide="network"></i>
+            </div>
+            <div class="project-overlay">
+              <span class="project-link-btn"><i data-lucide="briefcase"></i></span>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="tag">Design</span>
+              <span class="tag">Topology</span>
+              <span class="tag">Exhibition</span>
+            </div>
+            <h3>Designing Network Topology</h3>
+            <p>Merancang topologi design jaringan untuk acara IDN Exhibition.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ CERTIFICATES ═══════════════ -->
+  <section class="section certificates" id="certificates">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Certificates</span>
+        <h2 class="section-title">Certifications & Awards</h2>
+      </div>
+      <div class="cert-timeline">
+        <div class="cert-item reveal">
+          <div class="cert-dot"></div>
+          <a href="https://www.credly.com/badges/3064f8cb-ac45-4876-ba45-9ec491898f5a/public_url" target="_blank" rel="noopener" class="cert-card">
+            <div class="cert-badge">
+              <i data-lucide="award"></i>
+            </div>
+            <div class="cert-content">
+              <span class="cert-date">2026</span>
+              <h3>CCNA — Cisco Certified Network Associate</h3>
+              <p>Cisco Systems <span class="cert-verify">· Verify →</span></p>
+            </div>
+          </a>
+        </div>
+        <div class="cert-item reveal reveal-delay-1">
+          <div class="cert-dot"></div>
+          <a href="https://mikrotik.com/training/certificates/c395207c5d09c1f45c7e" target="_blank" rel="noopener" class="cert-card">
+            <div class="cert-badge">
+              <i data-lucide="award"></i>
+            </div>
+            <div class="cert-content">
+              <span class="cert-date">2024</span>
+              <h3>MikroTik Certified Routing Engineer (MTCRE)</h3>
+              <p>MikroTik <span class="cert-verify">· Verify →</span></p>
+            </div>
+          </a>
+        </div>
+        <div class="cert-item reveal reveal-delay-2">
+          <div class="cert-dot"></div>
+          <a href="https://mikrotik.com/training/certificates/c365925c38acafdcad80" target="_blank" rel="noopener" class="cert-card">
+            <div class="cert-badge">
+              <i data-lucide="award"></i>
+            </div>
+            <div class="cert-content">
+              <span class="cert-date">2024</span>
+              <h3>MikroTik Certified Network Associate (MTCNA)</h3>
+              <p>MikroTik <span class="cert-verify">· Verify →</span></p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ CONTACT ═══════════════ -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Contact</span>
+        <h2 class="section-title">Let's Connect</h2>
+        <p class="section-subtitle">Tertarik untuk berkolaborasi atau memiliki pertanyaan? Jangan ragu untuk menghubungi saya.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <div class="contact-card">
+            <div class="contact-icon"><i data-lucide="mail"></i></div>
+            <div>
+              <span class="contact-label">Email</span>
+              <a href="mailto:syamiladzdzaki90@gmail.com" class="contact-value">syamiladzdzaki90@gmail.com</a>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-icon"><i data-lucide="linkedin"></i></div>
+            <div>
+              <span class="contact-label">LinkedIn</span>
+              <a href="https://www.linkedin.com/in/naufaladzdzaki/" target="_blank" rel="noopener" class="contact-value">Naufal Syamil Adz Dzaki</a>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-icon"><i data-lucide="map-pin"></i></div>
+            <div>
+              <span class="contact-label">Location</span>
+              <span class="contact-value">Indonesia</span>
+            </div>
+          </div>
+        </div>
+        <form class="contact-form reveal reveal-delay-1" id="contactForm">
+          <div class="form-group">
+            <label for="name">Nama</label>
+            <input type="text" id="name" name="name" placeholder="Nama lengkap Anda" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="email@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Pesan</label>
+            <textarea id="message" name="message" rows="5" placeholder="Tulis pesan Anda..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">
+            <span>Kirim Pesan</span>
+            <i data-lucide="send" class="btn-icon"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ FOOTER ═══════════════ -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <a href="#hero" class="footer-logo">
+        <span class="logo-bracket">&lt;</span>NSAD<span class="logo-bracket">/&gt;</span>
+      </a>
+      <p class="footer-copy">&copy; 2026 Naufal Syamil Adz Dzaki. All rights reserved.</p>
+      <div class="footer-socials">
+        <a href="https://www.linkedin.com/in/naufaladzdzaki/" target="_blank" rel="noopener" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+        <a href="mailto:syamiladzdzaki90@gmail.com" aria-label="Email"><i data-lucide="mail"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
