@@ -228,6 +228,23 @@ ul {
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
+/* Mobile nav backdrop */
+.nav-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(26, 29, 38, 0.4);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 998;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s var(--ease-out);
+}
+
+.nav-backdrop.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
 
 /* ═══════════════════════════════════════════
    HERO
@@ -379,6 +396,32 @@ ul {
 .social-link svg {
   width: 18px;
   height: 18px;
+}
+
+/* LinkedIn brand logo */
+.linkedin-logo {
+  width: 20px;
+  height: 20px;
+  transition: color 0.3s var(--ease-out);
+}
+
+.social-link:hover .linkedin-logo {
+  color: #0A66C2;
+}
+
+.contact-icon .linkedin-logo {
+  width: 22px;
+  height: 22px;
+  color: var(--clr-accent);
+}
+
+.footer-socials .linkedin-logo {
+  width: 16px;
+  height: 16px;
+}
+
+.footer-socials a:hover .linkedin-logo {
+  color: #0A66C2;
 }
 
 /* Hero Visual — Terminal Card */
@@ -725,23 +768,9 @@ ul {
   font-size: 14px;
   color: var(--clr-text-2);
   line-height: 1.6;
-  margin-bottom: 20px;
 }
 
-.skill-level {
-  height: 4px;
-  background: var(--clr-surface-2);
-  border-radius: 4px;
-  overflow: hidden;
-}
 
-.skill-bar {
-  height: 100%;
-  background: var(--gradient);
-  border-radius: 4px;
-  width: 0%;
-  transition: width 1.2s var(--ease-out);
-}
 
 
 /* ═══════════════════════════════════════════
@@ -989,27 +1018,20 @@ a.cert-card {
 }
 
 
-/* ═══════════════════════════════════════════
-   CONTACT
-   ═══════════════════════════════════════════ */
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.3fr;
-  gap: 48px;
-  align-items: start;
-}
-
-.contact-info {
+/* Centered contact cards */
+.contact-cards-center {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  max-width: 520px;
+  margin: 0 auto;
 }
 
 .contact-card {
   display: flex;
   align-items: center;
   gap: 16px;
-  padding: 20px;
+  padding: 20px 28px;
   background: var(--clr-surface);
   border: 1px solid var(--clr-border);
   border-radius: var(--radius-md);
@@ -1019,7 +1041,7 @@ a.cert-card {
 .contact-card:hover {
   border-color: var(--clr-accent);
   box-shadow: var(--shadow-md);
-  transform: translateX(4px);
+  transform: translateY(-3px);
 }
 
 .contact-icon {
@@ -1058,59 +1080,6 @@ a.cert-card {
 
 a.contact-value:hover {
   color: var(--clr-accent);
-}
-
-/* Form */
-.contact-form {
-  background: var(--clr-surface);
-  border: 1px solid var(--clr-border);
-  border-radius: var(--radius-lg);
-  padding: 36px;
-}
-
-.form-group {
-  margin-bottom: 20px;
-}
-
-.form-group label {
-  display: block;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--clr-text);
-  margin-bottom: 8px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 14px 18px;
-  background: var(--clr-surface-2);
-  border: 1.5px solid var(--clr-border);
-  border-radius: var(--radius-sm);
-  font-family: var(--font-body);
-  font-size: 15px;
-  color: var(--clr-text);
-  outline: none;
-  transition: all 0.3s var(--ease-out);
-}
-
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-  color: var(--clr-text-3);
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-  border-color: var(--clr-accent);
-  box-shadow: 0 0 0 4px var(--clr-accent-soft);
-  background: var(--clr-surface);
-}
-
-.form-group textarea {
-  resize: vertical;
-  min-height: 120px;
 }
 
 
@@ -1214,8 +1183,35 @@ a.contact-value:hover {
 
 
 /* ═══════════════════════════════════════════
-   RESPONSIVE
+   RESPONSIVE — All Platforms
+   PC · Android · iOS
    ═══════════════════════════════════════════ */
+
+/* iOS safe area support */
+body {
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+/* Touch-friendly: min 44px tap targets on mobile */
+@media (pointer: coarse) {
+  .nav-link,
+  .social-link,
+  .btn,
+  .footer-socials a,
+  a.cert-card {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Prevent iOS zoom on input focus */
+@media screen and (max-width: 768px) {
+  input, textarea, select {
+    font-size: 16px !important;
+  }
+}
+
+/* ── Tablet: 769px – 1024px ── */
 @media (max-width: 1024px) {
   .hero-content {
     grid-template-columns: 1fr;
@@ -1256,23 +1252,22 @@ a.contact-value:hover {
   .projects-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-
-  .contact-grid {
-    grid-template-columns: 1fr;
-  }
 }
 
+/* ── Mobile: ≤ 768px ── */
 @media (max-width: 768px) {
   :root {
     --section-py: 80px;
   }
 
+  /* Mobile Navigation Drawer */
   .nav-links {
     position: fixed;
     top: 0;
     right: -100%;
     width: 280px;
     height: 100vh;
+    height: 100dvh; /* dynamic viewport height for mobile browsers */
     background: var(--clr-surface);
     flex-direction: column;
     padding: 100px 32px 32px;
@@ -1280,6 +1275,8 @@ a.contact-value:hover {
     box-shadow: var(--shadow-xl);
     transition: right 0.4s var(--ease-out);
     z-index: 999;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .nav-links.open {
@@ -1293,50 +1290,306 @@ a.contact-value:hover {
 
   .nav-link {
     font-size: 16px;
-    padding: 12px 16px;
+    padding: 14px 16px;
     width: 100%;
+    border-radius: var(--radius-sm);
+  }
+
+  /* Hero */
+  .hero {
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding-top: 70px;
+    padding-bottom: 60px;
   }
 
   .hero-name {
-    font-size: clamp(36px, 10vw, 52px);
+    font-size: clamp(32px, 10vw, 52px);
     letter-spacing: -1px;
   }
 
+  .hero-greeting {
+    font-size: 14px;
+  }
+
+  .hero-role {
+    font-size: 16px;
+  }
+
+  .hero-desc {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .btn {
+    padding: 14px 24px;
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+
+  .scroll-indicator {
+    bottom: 20px;
+  }
+
+  /* Section headers */
+  .section-header {
+    margin-bottom: 40px;
+  }
+
+  .section-title {
+    font-size: clamp(24px, 6vw, 32px);
+  }
+
+  .section-tag {
+    font-size: 12px;
+    padding: 5px 14px;
+  }
+
+  /* Skills */
   .skills-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
 
+  .skill-card {
+    padding: 24px 20px;
+  }
+
+  /* Experience / Projects */
   .projects-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
 
+  .project-image {
+    height: 180px;
+  }
+
+  .project-info {
+    padding: 20px;
+  }
+
+  /* Certificates */
+  .cert-timeline {
+    padding-left: 32px;
+  }
+
+  .cert-dot {
+    left: -25px;
+    width: 10px;
+    height: 10px;
+  }
+
+  .cert-card {
+    padding: 18px;
+    gap: 14px;
+  }
+
+  /* Contact */
+  .contact-cards-center {
+    max-width: 100%;
+  }
+
+  .contact-card {
+    padding: 18px 20px;
+  }
+
+  /* Footer */
   .footer-content {
     flex-direction: column;
     gap: 16px;
     text-align: center;
   }
 
-  .hero-cta {
-    flex-direction: column;
-    align-items: center;
+  .footer {
+    padding: 32px 0;
+    padding-bottom: calc(32px + env(safe-area-inset-bottom));
+  }
+
+  /* Background shapes: smaller on mobile */
+  .shape-1 {
+    width: 300px;
+    height: 300px;
+  }
+
+  .shape-2 {
+    width: 250px;
+    height: 250px;
+  }
+
+  .shape-3 {
+    width: 150px;
+    height: 150px;
   }
 }
 
+/* ── Small Mobile: ≤ 480px ── */
 @media (max-width: 480px) {
+  :root {
+    --section-py: 60px;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+
+  .hero-name {
+    font-size: clamp(28px, 9vw, 40px);
+  }
+
+  /* About stats */
   .about-stats {
-    gap: 24px;
+    gap: 20px;
   }
 
   .stat-number {
     font-size: 28px;
   }
 
-  .contact-form {
-    padding: 24px;
+  .stat-label {
+    font-size: 11px;
   }
 
+  /* About detail cards */
+  .about-details {
+    gap: 12px;
+  }
+
+  .detail-card {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .detail-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  /* Certificates */
   .cert-card {
     flex-direction: column;
     text-align: center;
+  }
+
+  .cert-badge {
+    width: 44px;
+    height: 44px;
+  }
+
+  .cert-content h3 {
+    font-size: 14px;
+  }
+
+  .cert-timeline {
+    padding-left: 24px;
+  }
+
+  .cert-dot {
+    left: -17px;
+    width: 8px;
+    height: 8px;
+  }
+
+  .cert-timeline::before {
+    left: 7px;
+  }
+
+  /* Contact cards */
+  .contact-card {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .contact-icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .contact-value {
+    font-size: 14px;
+    word-break: break-word;
+  }
+
+  /* Project info */
+  .project-info h3 {
+    font-size: 16px;
+  }
+
+  .project-info p {
+    font-size: 13px;
+  }
+
+  .project-image {
+    height: 160px;
+  }
+
+  /* Navbar */
+  .nav-container {
+    padding: 0 16px;
+  }
+
+  .nav-logo {
+    font-size: 18px;
+  }
+
+  .nav-links {
+    width: 100%;
+  }
+}
+
+/* ── Extra small: ≤ 360px (older Android, iPhone SE) ── */
+@media (max-width: 360px) {
+  .hero-name {
+    font-size: 28px;
+  }
+
+  .hero-role {
+    font-size: 14px;
+  }
+
+  .hero-role-line {
+    width: 24px;
+  }
+
+  .about-stats {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .stat-item {
+    min-width: 70px;
+  }
+
+  .section-title {
+    font-size: 22px;
+  }
+
+  .btn {
+    font-size: 13px;
+    padding: 12px 20px;
+  }
+}
+
+/* ── Landscape orientation on mobile ── */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero {
+    min-height: auto;
+    padding: 100px 0 60px;
+  }
+
+  .scroll-indicator {
+    display: none;
+  }
+
+  .shape {
+    opacity: 0.2;
   }
 }
