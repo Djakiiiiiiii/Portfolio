@@ -42,17 +42,44 @@ document.addEventListener('DOMContentLoaded', () => {
   const navToggle = document.getElementById('navToggle');
   const navLinksContainer = document.getElementById('navLinks');
 
+  // Create backdrop overlay for mobile menu
+  const backdrop = document.createElement('div');
+  backdrop.className = 'nav-backdrop';
+  document.body.appendChild(backdrop);
+
+  function openMobileNav() {
+    navToggle.classList.add('active');
+    navLinksContainer.classList.add('open');
+    backdrop.classList.add('visible');
+    document.body.style.overflow = 'hidden'; // Prevent background scroll
+  }
+
+  function closeMobileNav() {
+    navToggle.classList.remove('active');
+    navLinksContainer.classList.remove('open');
+    backdrop.classList.remove('visible');
+    document.body.style.overflow = '';
+  }
+
   navToggle.addEventListener('click', () => {
-    navToggle.classList.toggle('active');
-    navLinksContainer.classList.toggle('open');
+    if (navLinksContainer.classList.contains('open')) {
+      closeMobileNav();
+    } else {
+      openMobileNav();
+    }
+  });
+
+  // Close on backdrop tap
+  backdrop.addEventListener('click', closeMobileNav);
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMobileNav();
   });
 
   // Close mobile nav on link click
   navLinksContainer.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-      navToggle.classList.remove('active');
-      navLinksContainer.classList.remove('open');
-    });
+    link.addEventListener('click', closeMobileNav);
   });
 
   // ── Scroll Reveal Animation ──
@@ -108,25 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 30);
   }
 
-  // ── Skill Bar Animation ──
-  const skillBars = document.querySelectorAll('.skill-bar');
 
-  const skillObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const bar = entry.target;
-          const level = bar.getAttribute('data-level');
-          bar.style.setProperty('--bar-width', `${level}%`);
-          bar.classList.add('animate');
-          skillObserver.unobserve(bar);
-        }
-      });
-    },
-    { threshold: 0.3 }
-  );
-
-  skillBars.forEach(bar => skillObserver.observe(bar));
 
   // ── Smooth Scroll for all anchor links ──
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -139,29 +148,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ── Contact Form ──
-  const contactForm = document.getElementById('contactForm');
-
-  contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    const btn = contactForm.querySelector('.btn-primary');
-    const originalHTML = btn.innerHTML;
-
-    // Show success state
-    btn.innerHTML = `<span>Pesan Terkirim! ✓</span>`;
-    btn.style.background = 'linear-gradient(135deg, #28c840, #20a834)';
-
-    // Reset form
-    contactForm.reset();
-
-    // Restore button after 3 seconds
-    setTimeout(() => {
-      btn.innerHTML = originalHTML;
-      btn.style.background = '';
-      lucide.createIcons();
-    }, 3000);
-  });
 
   // ── Parallax Effect on Hero Shapes ──
   const shapes = document.querySelectorAll('.shape');
